@@ -3,6 +3,7 @@
     using System;
     using System.Windows.Forms;
     using Mpc.WinFormsIoC.Application.Services.Users;
+    using Mpc.WinFormsIoC.Presentation.Config;
 
     public partial class FrmMain : Form
     {
@@ -14,15 +15,18 @@
             _userService = userService;
         }
 
-        private async void BtnCreate_ClickAsync(object sender, EventArgs e)
+        private void BtnCreate_Click(object sender, EventArgs e)
         {
-            await _userService.CreateAsync(txtUsername.Text, txtName.Text).ConfigureAwait(false);
+            var frmUserEdit = IoC.GetForm<Users.FrmUserEdit>();
+            frmUserEdit.ShowDialog();
         }
 
         private async void BtnGet_Click(object sender, EventArgs e)
         {
-            var name = await _userService.GetNameAsync(txtUsername.Text).ConfigureAwait(false);
-            txtName.Text = name;
+            var users = await _userService.GetAllAsync();
+
+            userDtoBindingSource.DataSource = users;
+            userDtoBindingSource.ResetBindings(false);
         }
     }
 }

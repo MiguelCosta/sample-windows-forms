@@ -1,8 +1,7 @@
-﻿using System;
-using Mpc.WinFormsIoC.Application.Services.Users;
-
-namespace Mpc.WinFormsIoC.Presentation
+﻿namespace Mpc.WinFormsIoC.Presentation
 {
+    using System;
+
     internal static class Program
     {
         /// <summary>
@@ -13,8 +12,11 @@ namespace Mpc.WinFormsIoC.Presentation
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            IUserService userService = new UserService();
-            System.Windows.Forms.Application.Run(new FrmMain(userService));
+
+            Config.IoC.Init();
+            var frmMain = Config.IoC.GetForm<FrmMain>();
+
+            System.Windows.Forms.Application.Run(frmMain);
         }
     }
 }
