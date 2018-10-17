@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Mpc.WinFormsIoC.Application.Dto\Mpc.WinFormsIoC.Application.Dto.csproj" />
+    <ProjectReference Include="..\Mpc.WinFormsIoC.Data.Ef\Mpc.WinFormsIoC.Data.Ef.csproj" />
+    <ProjectReference Include="..\Mpc.WinFormsIoC.Infrastructure.CrossCutting\Mpc.WinFormsIoC.Infrastructure.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

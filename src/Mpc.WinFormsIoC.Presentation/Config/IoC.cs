@@ -1,7 +1,10 @@
 ﻿namespace Mpc.WinFormsIoC.Presentation.Config
 {
+    using System.Configuration;
     using System.Windows.Forms;
     using Microsoft.Extensions.DependencyInjection;
+    using Mpc.WinFormsIoC.Data.Ef.Configuration;
+    using Mpc.WinFormsIoC.Infrastructure.CrossCutting.Settings;
 
     public static class IoC
     {
@@ -17,7 +20,17 @@
             var services = new ServiceCollection();
             RegisterForms(services);
 
-            WinFormsIoC.Application.Services.Configuration.DependenciesConfiguration.ConfigureApplicationServices(services, null);
+            var appSettings = new AppSettings
+            {
+                DataBaseSettings = new DataBaseSettings
+                {
+                    ConnectionString = ConfigurationManager.AppSettings["DataBaseConnectionString"]
+                }
+            };
+
+            WinFormsIoC.Application.Services.Configuration.DependenciesConfiguration.ConfigureApplicationServices(services, appSettings);
+
+            services.ConfigureDataEf(appSettings);
 
             ServiceProvider = services.BuildServiceProvider();
         }
