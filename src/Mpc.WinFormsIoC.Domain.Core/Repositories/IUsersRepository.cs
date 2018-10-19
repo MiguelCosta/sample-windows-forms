@@ -12,7 +12,7 @@
 
         Task<UserModel> FindAsync(int id);
 
-        Task<List<UserModel>> GetByFilter(int page, int pageSize);
+        Task<List<UserModel>> GetByFilterAsync(int page, int pageSize);
 
         void Insert(UserModel user);
 

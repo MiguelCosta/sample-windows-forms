@@ -30,7 +30,7 @@
             throw new System.NotImplementedException();
         }
 
-        public Task<List<UserModel>> GetByFilter(int page, int pageSize)
+        public Task<List<UserModel>> GetByFilterAsync(int page, int pageSize)
         {
             return _context.Users.ToListAsync();
         }

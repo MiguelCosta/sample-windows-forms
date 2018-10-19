@@ -34,8 +34,19 @@
 
         public async Task<List<UserDto>> GetAllAsync()
         {
+            var users = await _unitOfWork.UsersRepository.GetByFilterAsync(1, 10).ConfigureAwait(false);
+
+            var usersDto = users.Select(x => new UserDto
+            {
+                Id = x.Id,
+                Email = x.Email,
+                Name = x.Name,
+                Password = x.Password,
+                Username = x.Username
+            }).ToList();
+
             await Task.Delay(3000).ConfigureAwait(false);
-            return _users;
+            return usersDto;
         }
 
         public Task<UserDto> GetByUsernameAsync(string username)
