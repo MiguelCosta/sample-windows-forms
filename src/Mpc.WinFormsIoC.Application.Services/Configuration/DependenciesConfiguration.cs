@@ -7,7 +7,7 @@
 
     public static class DependenciesConfiguration
     {
-        public static IServiceCollection ConfigureApplicationServices(IServiceCollection services, AppSettings appSettings)
+        public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services, AppSettings appSettings)
         {
             services.AddTransient<IUserService, UserService>();
 

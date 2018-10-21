@@ -45,7 +45,6 @@
                 Username = x.Username
             }).ToList();
 
-            await Task.Delay(3000).ConfigureAwait(false);
             return usersDto;
         }
 
