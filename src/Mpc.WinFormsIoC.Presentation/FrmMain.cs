@@ -28,5 +28,11 @@
             userDtoBindingSource.DataSource = users;
             userDtoBindingSource.ResetBindings(false);
         }
+
+        private void btnCountries_Click(object sender, EventArgs e)
+        {
+            var frmCountries = IoC.GetForm<Countries.FrmCountries>();
+            frmCountries.ShowDialog();
+        }
     }
 }

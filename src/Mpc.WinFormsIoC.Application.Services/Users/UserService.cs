@@ -17,7 +17,7 @@
             _unitOfWork = unitOfWork;
         }
 
-        public Task CreateAsync(UserDto user)
+        public async Task CreateAsync(UserDto user)
         {
             var model = new UserModel
             {
@@ -27,9 +27,9 @@
                 Username = user.Username
             };
 
-            _unitOfWork.UsersRepository.Insert(model);
+            await _unitOfWork.UsersRepository.InsertAsync(model).ConfigureAwait(false);
 
-            return _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync().ConfigureAwait(false);
         }
 
         public async Task<List<UserDto>> GetAllAsync()
@@ -48,9 +48,9 @@
             return usersDto;
         }
 
-        public UserDto GetByUsernameAsync(string username)
+        public async Task<UserDto> GetByUsernameAsync(string username)
         {
-            var user = _unitOfWork.UsersRepository.GetByUsername(username);
+            var user = await _unitOfWork.UsersRepository.GetByUsernameAsync(username).ConfigureAwait(false);
 
             var userDto = new UserDto
             {

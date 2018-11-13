@@ -39,6 +39,7 @@
         {
             services.AddSingleton<FrmMain>();
             services.AddTransient<Users.FrmUserEdit>();
+            services.AddTransient<Countries.FrmCountries>();
         }
     }
 }

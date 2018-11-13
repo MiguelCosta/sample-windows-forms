@@ -32,22 +32,22 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnGet = new System.Windows.Forms.Button();
             this.DgvUsers = new System.Windows.Forms.DataGridView();
-            this.userDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCountries = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(11, 363);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreate.Location = new System.Drawing.Point(16, 558);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(50, 24);
+            this.btnCreate.Size = new System.Drawing.Size(75, 37);
             this.btnCreate.TabIndex = 2;
             this.btnCreate.Text = "Add";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -55,10 +55,9 @@
             // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(65, 363);
-            this.btnGet.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGet.Location = new System.Drawing.Point(98, 558);
             this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(52, 24);
+            this.btnGet.Size = new System.Drawing.Size(78, 37);
             this.btnGet.TabIndex = 3;
             this.btnGet.Text = "Get";
             this.btnGet.UseVisualStyleBackColor = true;
@@ -77,15 +76,12 @@
             this.passwordDataGridViewTextBoxColumn,
             this.usernameDataGridViewTextBoxColumn});
             this.DgvUsers.DataSource = this.userDtoBindingSource;
-            this.DgvUsers.Location = new System.Drawing.Point(12, 12);
+            this.DgvUsers.Location = new System.Drawing.Point(18, 18);
+            this.DgvUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvUsers.Name = "DgvUsers";
             this.DgvUsers.ReadOnly = true;
-            this.DgvUsers.Size = new System.Drawing.Size(639, 346);
+            this.DgvUsers.Size = new System.Drawing.Size(958, 532);
             this.DgvUsers.TabIndex = 4;
-            // 
-            // userDtoBindingSource
-            // 
-            this.userDtoBindingSource.DataSource = typeof(Mpc.WinFormsIoC.Application.Dto.UserDto);
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -122,15 +118,29 @@
             this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
             this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // userDtoBindingSource
+            // 
+            this.userDtoBindingSource.DataSource = typeof(Mpc.WinFormsIoC.Application.Dto.UserDto);
+            // 
+            // btnCountries
+            // 
+            this.btnCountries.Location = new System.Drawing.Point(182, 558);
+            this.btnCountries.Name = "btnCountries";
+            this.btnCountries.Size = new System.Drawing.Size(78, 37);
+            this.btnCountries.TabIndex = 5;
+            this.btnCountries.Text = "Countries";
+            this.btnCountries.UseVisualStyleBackColor = true;
+            this.btnCountries.Click += new System.EventHandler(this.btnCountries_Click);
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 398);
+            this.ClientSize = new System.Drawing.Size(994, 612);
+            this.Controls.Add(this.btnCountries);
             this.Controls.Add(this.DgvUsers);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.btnCreate);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).EndInit();
@@ -149,6 +159,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource userDtoBindingSource;
+        private System.Windows.Forms.Button btnCountries;
     }
 }
 

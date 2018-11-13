@@ -16,6 +16,7 @@
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUsersRepository, UsersRepository>();
+            services.AddTransient<ICountriesRepository, CountriesRepository>();
 
             return services;
         }

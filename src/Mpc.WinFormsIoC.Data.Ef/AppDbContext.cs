@@ -14,9 +14,12 @@
 
         public DbSet<UserModel> Users { get; set; }
 
+        public DbSet<CountryModel> Countries { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AddConfiguration(new UserMapping());
+            modelBuilder.AddConfiguration(new CountryMapping());
         }
     }
 }

@@ -12,9 +12,12 @@
         {
             _context = context;
             UsersRepository = new Repositories.UsersRepository(_context);
+            CountriesRepository = new Repositories.CountriesRepository(_context);
         }
 
         public IUsersRepository UsersRepository { get; }
+
+        public ICountriesRepository CountriesRepository { get; }
 
         public Task SaveChangesAsync()
         {

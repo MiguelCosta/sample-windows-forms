@@ -5,6 +5,8 @@
 
     public interface IUnitOfWork
     {
+        ICountriesRepository CountriesRepository { get; }
+
         IUsersRepository UsersRepository { get; }
 
         Task SaveChangesAsync();
