@@ -48,10 +48,20 @@
             return usersDto;
         }
 
-        public Task<UserDto> GetByUsernameAsync(string username)
+        public UserDto GetByUsernameAsync(string username)
         {
-            var user = _users.FirstOrDefault(x => x.Username == username);
-            return Task.FromResult(user);
+            var user = _unitOfWork.UsersRepository.GetByUsername(username);
+
+            var userDto = new UserDto
+            {
+                Email = user.Email,
+                Id = user.Id,
+                Name = user.Name,
+                Password = string.Empty,
+                Username = user.Username
+            };
+
+            return userDto;
         }
     }
 }

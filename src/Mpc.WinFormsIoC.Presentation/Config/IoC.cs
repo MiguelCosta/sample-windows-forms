@@ -3,6 +3,7 @@
     using System.Configuration;
     using System.Windows.Forms;
     using Microsoft.Extensions.DependencyInjection;
+    using Mpc.WinFormsIoC.Application.Services.Configuration;
     using Mpc.WinFormsIoC.Data.Ef.Configuration;
     using Mpc.WinFormsIoC.Infrastructure.CrossCutting.Settings;
 
@@ -28,8 +29,7 @@
                 }
             };
 
-            WinFormsIoC.Application.Services.Configuration.DependenciesConfiguration.ConfigureApplicationServices(services, appSettings);
-
+            services.ConfigureApplicationServices(appSettings);
             services.ConfigureDataEf(appSettings);
 
             ServiceProvider = services.BuildServiceProvider();

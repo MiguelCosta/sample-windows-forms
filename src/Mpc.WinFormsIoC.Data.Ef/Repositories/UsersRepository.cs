@@ -35,9 +35,14 @@
             return _context.Users.ToListAsync();
         }
 
-        public void Insert(UserModel user)
+        public Task<UserModel> GetByUsernameAsync(string username)
         {
-            _context.Users.Add(user);
+            return _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+        }
+
+        public Task InsertAsync(UserModel user)
+        {
+            return _context.Users.AddAsync(user);
         }
 
         public void Update(UserModel user)
