@@ -1,6 +1,8 @@
 ﻿namespace Mpc.WinFormsIoC.Presentation
 {
     using System;
+    using System.Threading;
+    using System.Windows.Forms;
 
     internal static class Program
     {
@@ -10,13 +12,23 @@
         [STAThread]
         private static void Main()
         {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
             Config.IoC.Init();
             var frmMain = Config.IoC.GetForm<FrmMain>();
 
-            System.Windows.Forms.Application.Run(frmMain);
+            Application.ThreadException += Application_ThreadException;
+
+            Application.Run(frmMain);
+        }
+
+        /// <summary>
+        /// Event to Catch Application Exceptions
+        /// </summary>
+        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message, "Error");
         }
     }
 }
