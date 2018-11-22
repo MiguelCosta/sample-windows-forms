@@ -125,6 +125,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\IoC.cs" />
+    <Compile Include="Core\FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\FrmLoading.Designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ShowLoading.cs" />
     <Compile Include="Countries\FrmCountries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +152,9 @@
     <Compile Include="Users\FrmUserEdit.Designer.cs">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Core\FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Countries\FrmCountries.resx">
       <DependentUpon>FrmCountries.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +169,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Users\FrmUserEdit.resx">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
@@ -198,5 +209,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Loading\Loading.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

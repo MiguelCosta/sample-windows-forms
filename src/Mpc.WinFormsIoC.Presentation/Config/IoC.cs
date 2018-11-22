@@ -38,8 +38,9 @@
         private static void RegisterForms(IServiceCollection services)
         {
             services.AddSingleton<FrmMain>();
-            services.AddTransient<Users.FrmUserEdit>();
+            services.AddSingleton<Core.FrmLoading>();
             services.AddTransient<Countries.FrmCountries>();
+            services.AddTransient<Users.FrmUserEdit>();
         }
     }
 }
