@@ -1,5 +1,6 @@
 ﻿namespace Mpc.WinFormsIoC.Application.Services.Users
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,6 +8,8 @@
     using Mpc.WinFormsIoC.Application.Services.Mappings;
     using Mpc.WinFormsIoC.Application.Services.Security;
     using Mpc.WinFormsIoC.Domain.Core;
+    using Mpc.WinFormsIoC.Domain.Models;
+    using Polly;
 
     public class UserService : IUserService
     {
@@ -33,9 +36,14 @@
 
         public async Task<List<UserDto>> GetAllAsync()
         {
-            var users = await _unitOfWork.UsersRepository.GetByFilterAsync(1, 10).ConfigureAwait(false);
+            // example to use retry pattern
+            // https://azure.microsoft.com/pt-pt/blog/using-the-retry-pattern-to-make-your-cloud-application-more-resilient/
+            var policy = await Policy
+                .Handle<Exception>()
+                .WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2))
+                .ExecuteAndCaptureAsync(async () => await _unitOfWork.UsersRepository.GetByFilterAsync(1, 10).ConfigureAwait(false));
 
-            return users.ToDto().ToList();
+            return policy.Result.ToDto().ToList();
         }
 
         public async Task<UserDto> GetByUsernameAsync(string username)
