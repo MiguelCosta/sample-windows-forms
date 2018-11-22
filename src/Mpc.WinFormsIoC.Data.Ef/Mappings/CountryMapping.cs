@@ -2,12 +2,11 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Mpc.WinFormsIoC.Data.Ef.Mappings.Configuration;
     using Mpc.WinFormsIoC.Domain.Models;
 
-    internal class CountryMapping : EntityTypeConfiguration<CountryModel>
+    internal class CountryMapping : IEntityTypeConfiguration<CountryModel>
     {
-        public override void Map(EntityTypeBuilder<CountryModel> builder)
+        public void Configure(EntityTypeBuilder<CountryModel> builder)
         {
             builder.ToTable("Countries");
 

@@ -2,12 +2,11 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Mpc.WinFormsIoC.Data.Ef.Mappings.Configuration;
     using Mpc.WinFormsIoC.Domain.Models;
 
-    internal class UserMapping : EntityTypeConfiguration<UserModel>
+    internal class UserMapping : IEntityTypeConfiguration<UserModel>
     {
-        public override void Map(EntityTypeBuilder<UserModel> builder)
+        public void Configure(EntityTypeBuilder<UserModel> builder)
         {
             builder.ToTable("Users");
 
