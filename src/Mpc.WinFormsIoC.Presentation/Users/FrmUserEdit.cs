@@ -19,7 +19,6 @@ namespace Mpc.WinFormsIoC.Presentation.Users
             var user = new UserDto
             {
                 Email = TxtEmail.Text,
-                Id = int.Parse(TxtId.Text),
                 Name = TxtName.Text,
                 Password = TxtPassword.Text,
                 Username = TxtUsername.Text

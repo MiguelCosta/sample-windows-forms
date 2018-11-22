@@ -5,20 +5,26 @@
     using System.Threading.Tasks;
     using Mpc.WinFormsIoC.Application.Dto;
     using Mpc.WinFormsIoC.Application.Services.Mappings;
+    using Mpc.WinFormsIoC.Application.Services.Security;
     using Mpc.WinFormsIoC.Domain.Core;
 
     public class UserService : IUserService
     {
+        private readonly IEncryptText _encryptText;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IUnitOfWork unitOfWork)
+        public UserService(
+            IEncryptText encryptText,
+            IUnitOfWork unitOfWork)
         {
+            _encryptText = encryptText;
             _unitOfWork = unitOfWork;
         }
 
         public async Task CreateAsync(UserDto user)
         {
             var userModel = user.ToModel();
+            userModel.Password = _encryptText.Encrypt(user.Password);
 
             await _unitOfWork.UsersRepository.InsertAsync(userModel).ConfigureAwait(false);
 
