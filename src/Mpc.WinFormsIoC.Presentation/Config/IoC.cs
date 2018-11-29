@@ -13,7 +13,7 @@
 
         public static T GetForm<T>() where T : Form
         {
-            return ServiceProvider.GetService<T>();
+            return ServiceProvider.GetRequiredService<T>();
         }
 
         public static void Init()
@@ -39,8 +39,10 @@
         {
             services.AddSingleton<FrmMain>();
             services.AddSingleton<Core.FrmLoading>();
-            services.AddTransient<Countries.FrmCountries>();
+            services.AddTransient<Countries.FrmCountryList>();
+            services.AddTransient<Users.FrmLogin>();
             services.AddTransient<Users.FrmUserEdit>();
+            services.AddTransient<Users.FrmUserList>();
         }
     }
 }

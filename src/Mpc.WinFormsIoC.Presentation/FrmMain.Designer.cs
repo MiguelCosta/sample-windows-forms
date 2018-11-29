@@ -29,137 +29,131 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnGet = new System.Windows.Forms.Button();
-            this.DgvUsers = new System.Windows.Forms.DataGridView();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCountries = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
+            this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.menuMainGeneral = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMainConfiguration = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMainConfigurationUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusMain = new System.Windows.Forms.StatusStrip();
+            this.StatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.statusUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusUserName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuMainConfigurationCountries = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).BeginInit();
+            this.menuMain.SuspendLayout();
+            this.statusMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnCreate
+            // menuMain
             // 
-            this.btnCreate.Location = new System.Drawing.Point(16, 558);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 37);
-            this.btnCreate.TabIndex = 2;
-            this.btnCreate.Text = "Add";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMainGeneral,
+            this.menuMainConfiguration});
+            this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.Name = "menuMain";
+            this.menuMain.Size = new System.Drawing.Size(663, 24);
+            this.menuMain.TabIndex = 1;
+            this.menuMain.Text = "menuStrip1";
             // 
-            // btnGet
+            // menuMainGeneral
             // 
-            this.btnGet.Location = new System.Drawing.Point(98, 558);
-            this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(78, 37);
-            this.btnGet.TabIndex = 3;
-            this.btnGet.Text = "Get";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.BtnGet_Click);
+            this.menuMainGeneral.Name = "menuMainGeneral";
+            this.menuMainGeneral.Size = new System.Drawing.Size(107, 20);
+            this.menuMainGeneral.Text = "Mpc Application";
             // 
-            // DgvUsers
+            // menuMainConfiguration
             // 
-            this.DgvUsers.AllowUserToAddRows = false;
-            this.DgvUsers.AllowUserToDeleteRows = false;
-            this.DgvUsers.AutoGenerateColumns = false;
-            this.DgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.emailDataGridViewTextBoxColumn,
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn,
-            this.usernameDataGridViewTextBoxColumn});
-            this.DgvUsers.DataSource = this.userDtoBindingSource;
-            this.DgvUsers.Location = new System.Drawing.Point(18, 18);
-            this.DgvUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DgvUsers.Name = "DgvUsers";
-            this.DgvUsers.ReadOnly = true;
-            this.DgvUsers.Size = new System.Drawing.Size(958, 532);
-            this.DgvUsers.TabIndex = 4;
+            this.menuMainConfiguration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMainConfigurationCountries,
+            this.menuMainConfigurationUsers});
+            this.menuMainConfiguration.Name = "menuMainConfiguration";
+            this.menuMainConfiguration.Size = new System.Drawing.Size(93, 20);
+            this.menuMainConfiguration.Text = "Configuration";
             // 
-            // emailDataGridViewTextBoxColumn
+            // menuMainConfigurationUsers
             // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.menuMainConfigurationUsers.Name = "menuMainConfigurationUsers";
+            this.menuMainConfigurationUsers.Size = new System.Drawing.Size(180, 22);
+            this.menuMainConfigurationUsers.Text = "Users";
+            this.menuMainConfigurationUsers.Click += new System.EventHandler(this.menuMainConfigurationUsers_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // statusMain
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusProgressBar,
+            this.statusUserLabel,
+            this.statusUserName});
+            this.statusMain.Location = new System.Drawing.Point(0, 376);
+            this.statusMain.Name = "statusMain";
+            this.statusMain.Size = new System.Drawing.Size(663, 22);
+            this.statusMain.TabIndex = 2;
+            this.statusMain.Text = "statusStrip1";
             // 
-            // nameDataGridViewTextBoxColumn
+            // StatusProgressBar
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.StatusProgressBar.MarqueeAnimationSpeed = 0;
+            this.StatusProgressBar.Name = "StatusProgressBar";
+            this.StatusProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.StatusProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             // 
-            // passwordDataGridViewTextBoxColumn
+            // statusUserLabel
             // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusUserLabel.Name = "statusUserLabel";
+            this.statusUserLabel.Size = new System.Drawing.Size(33, 17);
+            this.statusUserLabel.Text = "User:";
             // 
-            // usernameDataGridViewTextBoxColumn
+            // statusUserName
             // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusUserName.Name = "statusUserName";
+            this.statusUserName.Size = new System.Drawing.Size(0, 17);
             // 
-            // userDtoBindingSource
+            // menuMainConfigurationCountries
             // 
-            this.userDtoBindingSource.DataSource = typeof(Mpc.WinFormsIoC.Application.Dto.UserDto);
-            // 
-            // btnCountries
-            // 
-            this.btnCountries.Location = new System.Drawing.Point(182, 558);
-            this.btnCountries.Name = "btnCountries";
-            this.btnCountries.Size = new System.Drawing.Size(78, 37);
-            this.btnCountries.TabIndex = 5;
-            this.btnCountries.Text = "Countries";
-            this.btnCountries.UseVisualStyleBackColor = true;
-            this.btnCountries.Click += new System.EventHandler(this.btnCountries_Click);
+            this.menuMainConfigurationCountries.Name = "menuMainConfigurationCountries";
+            this.menuMainConfigurationCountries.Size = new System.Drawing.Size(180, 22);
+            this.menuMainConfigurationCountries.Text = "Countries";
+            this.menuMainConfigurationCountries.Click += new System.EventHandler(this.menuMainConfigurationCountries_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 612);
-            this.Controls.Add(this.btnCountries);
-            this.Controls.Add(this.DgvUsers);
-            this.Controls.Add(this.btnGet);
-            this.Controls.Add(this.btnCreate);
+            this.ClientSize = new System.Drawing.Size(663, 398);
+            this.Controls.Add(this.statusMain);
+            this.Controls.Add(this.menuMain);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuMain;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).EndInit();
+            this.Text = "Mpc Application";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).EndInit();
+            this.menuMain.ResumeLayout(false);
+            this.menuMain.PerformLayout();
+            this.statusMain.ResumeLayout(false);
+            this.statusMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button btnGet;
-        private System.Windows.Forms.DataGridView DgvUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource userDtoBindingSource;
-        private System.Windows.Forms.Button btnCountries;
+        private System.Windows.Forms.MenuStrip menuMain;
+        private System.Windows.Forms.ToolStripMenuItem menuMainGeneral;
+        private System.Windows.Forms.ToolStripMenuItem menuMainConfiguration;
+        private System.Windows.Forms.ToolStripMenuItem menuMainConfigurationUsers;
+        private System.Windows.Forms.StatusStrip statusMain;
+        private System.Windows.Forms.ToolStripStatusLabel statusUserLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusUserName;
+        public System.Windows.Forms.ToolStripProgressBar StatusProgressBar;
+        private System.Windows.Forms.ToolStripMenuItem menuMainConfigurationCountries;
     }
 }
 

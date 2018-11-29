@@ -4,7 +4,6 @@
     using System.Windows.Forms;
     using Mpc.WinFormsIoC.Application.Services.Users;
     using Mpc.WinFormsIoC.Presentation.Config;
-    using Mpc.WinFormsIoC.Presentation.Core;
 
     public partial class FrmMain : Form
     {
@@ -14,29 +13,36 @@
         {
             InitializeComponent();
             _userService = userService;
+            Core.ApplicationContext.MainForm = this;
         }
 
         private void btnCountries_Click(object sender, EventArgs e)
         {
-            var frmCountries = IoC.GetForm<Countries.FrmCountries>();
+            var frmCountries = IoC.GetForm<Countries.FrmCountryList>();
             frmCountries.ShowDialog();
         }
 
-        private void BtnCreate_Click(object sender, EventArgs e)
+        private void FrmMain_Load(object sender, EventArgs e)
         {
-            var frmUserEdit = IoC.GetForm<Users.FrmUserEdit>();
-            frmUserEdit.ShowDialog();
+            Core.Events.Login.SuccessLogin += Login_SuccessLogin;
+
+            var frmLogin = IoC.GetForm<Users.FrmLogin>();
+            frmLogin.ShowDialog();
         }
 
-        private async void BtnGet_Click(object sender, EventArgs e)
+        private void Login_SuccessLogin(object sender, Core.Events.SuccessLoginEventArgs e)
         {
-            using (new ShowLoading())
-            {
-                var users = await _userService.GetAllAsync();
+            statusUserName.Text = e.Username;
+        }
 
-                userDtoBindingSource.DataSource = users;
-                userDtoBindingSource.ResetBindings(false);
-            }
+        private void menuMainConfigurationCountries_Click(object sender, EventArgs e)
+        {
+            Core.Helpers.OpenFormsHelpers.OpenForm<Countries.FrmCountryList>();
+        }
+
+        private void menuMainConfigurationUsers_Click(object sender, EventArgs e)
+        {
+            Core.Helpers.OpenFormsHelpers.OpenForm<Users.FrmUserList>();
         }
     }
 }

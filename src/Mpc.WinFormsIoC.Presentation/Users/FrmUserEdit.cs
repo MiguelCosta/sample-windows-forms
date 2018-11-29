@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 using Mpc.WinFormsIoC.Application.Dto;
 using Mpc.WinFormsIoC.Application.Services.Users;
 
@@ -14,7 +15,51 @@ namespace Mpc.WinFormsIoC.Presentation.Users
             _userService = userService;
         }
 
+        public int? UserId { get; set; } = null;
+
         private async void BtnSave_ClickAsync(object sender, System.EventArgs e)
+        {
+            if (UserId.HasValue)
+            {
+                await UpdateUserAsync();
+                Core.Messages.Information.ShowMessage("User updated", "Users");
+            }
+            else
+            {
+                await SaveUserAsync();
+                Core.Messages.Information.ShowMessage("User created", "Users");
+            }
+            Close();
+        }
+
+        private void FillUser(UserDto user)
+        {
+            TxtId.Text = user.Id.ToString();
+            TxtEmail.Text = user.Email;
+            TxtName.Text = user.Name;
+            TxtPassword.Text = user.Password;
+            TxtUsername.Text = user.Username;
+        }
+
+        private async void FrmUserEdit_Load(object sender, System.EventArgs e)
+        {
+            if (!UserId.HasValue)
+            {
+                return;
+            }
+
+            using (new Core.ShowLoading())
+            {
+                var existUser = await _userService.FindAsync(UserId.Value);
+
+                if (existUser != null)
+                {
+                    FillUser(existUser);
+                }
+            }
+        }
+
+        private UserDto GetUser()
         {
             var user = new UserDto
             {
@@ -24,9 +69,23 @@ namespace Mpc.WinFormsIoC.Presentation.Users
                 Username = TxtUsername.Text
             };
 
-            await _userService.CreateAsync(user).ConfigureAwait(false);
+            return user;
+        }
 
-            MessageBox.Show("User created");
+        private async Task SaveUserAsync()
+        {
+            var user = GetUser();
+
+            await _userService.CreateAsync(user);
+        }
+
+        private async Task UpdateUserAsync()
+        {
+            var user = GetUser();
+            user.Id = UserId.Value;
+            user.Password = string.Empty;
+
+            await _userService.UpdateAsync(user);
         }
     }
 }

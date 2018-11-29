@@ -27,17 +27,30 @@
 
         public Task<UserModel> FindAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public Task<List<UserModel>> GetByFilterAsync(int page, int pageSize)
         {
-            return _context.Users.ToListAsync();
+            return _context.Users
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public Task<UserModel> GetByUsernameAndPasswordAsync(string username, string password)
+        {
+            return _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Username == username && x.Password == password);
         }
 
         public Task<UserModel> GetByUsernameAsync(string username)
         {
-            return _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            return _context.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Username == username);
         }
 
         public Task InsertAsync(UserModel user)
@@ -47,7 +60,8 @@
 
         public void Update(UserModel user)
         {
-            throw new System.NotImplementedException();
+            _context.Users.Attach(user);
+            _context.Entry(user).State = EntityState.Modified;
         }
     }
 }

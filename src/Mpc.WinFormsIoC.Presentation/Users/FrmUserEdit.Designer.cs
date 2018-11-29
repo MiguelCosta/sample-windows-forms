@@ -54,6 +54,7 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(97, 10);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(255, 20);
             this.TxtId.TabIndex = 1;
             // 
@@ -148,9 +149,11 @@
             this.Controls.Add(this.TxtUsername);
             this.Controls.Add(this.TxtId);
             this.Controls.Add(this.LblId);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmUserEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmUserEdit";
+            this.Load += new System.EventHandler(this.FrmUserEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

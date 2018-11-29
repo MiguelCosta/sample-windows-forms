@@ -14,6 +14,8 @@
 
         Task<List<UserModel>> GetByFilterAsync(int page, int pageSize);
 
+        Task<UserModel> GetByUsernameAndPasswordAsync(string username, string password);
+
         Task<UserModel> GetByUsernameAsync(string username);
 
         Task InsertAsync(UserModel user);

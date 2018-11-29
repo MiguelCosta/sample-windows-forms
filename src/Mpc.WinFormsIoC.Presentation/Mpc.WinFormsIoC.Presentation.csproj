@@ -128,12 +128,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\IoC.cs" />
+    <Compile Include="Core\ApplicationContext.cs" />
+    <Compile Include="Core\Events\Login.cs" />
+    <Compile Include="Core\Events\SuccessLoginEventArgs.cs" />
     <Compile Include="Core\FrmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Core\FrmLoading.Designer.cs">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Helpers\DataGridViewHelpers.cs" />
+    <Compile Include="Core\Helpers\OpenFormsHelpers.cs" />
+    <Compile Include="Core\Messages\Information.cs" />
     <Compile Include="Core\ShowLoading.cs" />
     <Compile Include="Countries\FrmCountries.cs">
       <SubType>Form</SubType>
@@ -149,11 +155,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\FrmUserEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Users\FrmUserEdit.Designer.cs">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmUserList.Designer.cs">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Core\FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
@@ -174,8 +192,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Users\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\FrmUserEdit.resx">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmUserList.resx">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Mpc.WinFormsIoC.Application.Dto.CountryDto.datasource" />

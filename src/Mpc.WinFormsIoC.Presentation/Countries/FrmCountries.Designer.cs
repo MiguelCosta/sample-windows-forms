@@ -1,6 +1,6 @@
 ﻿namespace Mpc.WinFormsIoC.Presentation.Countries
 {
-    partial class FrmCountries
+    partial class FrmCountryList
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvCountries = new System.Windows.Forms.DataGridView();
-            this.countryDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCountries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -45,15 +45,12 @@
             this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.dgvCountries.DataSource = this.countryDtoBindingSource;
-            this.dgvCountries.Location = new System.Drawing.Point(12, 12);
+            this.dgvCountries.Location = new System.Drawing.Point(8, 8);
+            this.dgvCountries.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCountries.Name = "dgvCountries";
             this.dgvCountries.RowTemplate.Height = 28;
-            this.dgvCountries.Size = new System.Drawing.Size(776, 426);
+            this.dgvCountries.Size = new System.Drawing.Size(517, 277);
             this.dgvCountries.TabIndex = 0;
-            // 
-            // countryDtoBindingSource
-            // 
-            this.countryDtoBindingSource.DataSource = typeof(Mpc.WinFormsIoC.Application.Dto.CountryDto);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -67,15 +64,20 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // FrmCountries
+            // countryDtoBindingSource
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.countryDtoBindingSource.DataSource = typeof(Mpc.WinFormsIoC.Application.Dto.CountryDto);
+            // 
+            // FrmCountryList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 292);
             this.Controls.Add(this.dgvCountries);
-            this.Name = "FrmCountries";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FrmCountryList";
             this.Text = "FrmCountries";
-            this.Load += new System.EventHandler(this.FrmCountries_Load);
+            this.Load += new System.EventHandler(this.FrmCountryList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCountries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryDtoBindingSource)).EndInit();
             this.ResumeLayout(false);

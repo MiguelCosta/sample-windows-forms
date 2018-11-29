@@ -19,3 +19,10 @@ CREATE TABLE [dbo].[Users](
   [Email] [nvarchar](255) NOT NULL,
   CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([Id] ASC)) ON [PRIMARY]
 GO
+
+INSERT INTO [dbo].[Users]
+    ([Username],[Password],[Name],[Email])
+  VALUES
+    ('system','0573915C3BDF76AB4F0A66CE5EA90E15787321ED','System User','miguelpintodacosta@gmail.com');
+    -- password: system_123
+GO

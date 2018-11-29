@@ -35,20 +35,23 @@
             // 
             this.lblLoading.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLoading.Image = global::Mpc.WinFormsIoC.Presentation.Properties.Resources.Loading;
-            this.lblLoading.Location = new System.Drawing.Point(39, 24);
+            this.lblLoading.Location = new System.Drawing.Point(11, 9);
+            this.lblLoading.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(107, 107);
+            this.lblLoading.Size = new System.Drawing.Size(106, 89);
             this.lblLoading.TabIndex = 0;
+            this.lblLoading.UseWaitCursor = true;
             // 
             // FrmLoading
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(187, 155);
+            this.ClientSize = new System.Drawing.Size(128, 107);
             this.ControlBox = false;
             this.Controls.Add(this.lblLoading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLoading";
