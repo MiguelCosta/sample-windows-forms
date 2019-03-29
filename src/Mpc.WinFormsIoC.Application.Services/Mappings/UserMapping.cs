@@ -10,7 +10,7 @@
         /// <summary>
         /// Text used to hide the encrypted password
         /// </summary>
-        private static readonly string hidePassword = "***************";
+        public const string HidePassword = "***************";
 
         /// <summary>
         /// Convert IEnumerable of UserModel to IEnumerable of UserDto 
@@ -30,7 +30,7 @@
                 Email = user.Email,
                 Id = user.Id,
                 Name = user.Name,
-                Password = hidePassword,
+                Password = HidePassword,
                 Username = user.Username
             };
         }
@@ -53,7 +53,7 @@
                 Email = user.Email,
                 Id = user.Id,
                 Name = user.Name,
-                Password = user.Password == hidePassword ? string.Empty : user.Password,
+                Password = user.Password == HidePassword ? string.Empty : user.Password,
                 Username = user.Username
             };
         }
