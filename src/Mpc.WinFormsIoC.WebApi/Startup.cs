@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Mpc.WinFormsIoC.Application.Services.Configuration;
 using Mpc.WinFormsIoC.Data.Ef.Configuration;
 using Mpc.WinFormsIoC.Infrastructure.CrossCutting.Settings;
+using Mpc.WinFormsIoC.WebApi.Configuration;
 
 namespace Mpc.WinFormsIoC.WebApi
 {
@@ -25,8 +26,10 @@ namespace Mpc.WinFormsIoC.WebApi
 
             var appSettings = this.Configuration.Get<AppSettings>();
 
-            services.ConfigureApplicationServices(appSettings);
-            services.ConfigureDataEf(appSettings);
+            services
+                .ConfigureApplicationServices(appSettings)
+                .ConfigureDataEf(appSettings)
+                .ConfigureSwagger(appSettings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +44,10 @@ namespace Mpc.WinFormsIoC.WebApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app
+                .UseHttpsRedirection()
+                .UseMvc()
+                .AppConfigureSwagger();
         }
     }
 }
