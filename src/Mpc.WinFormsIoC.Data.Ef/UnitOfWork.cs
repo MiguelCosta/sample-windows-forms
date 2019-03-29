@@ -1,5 +1,6 @@
 ﻿namespace Mpc.WinFormsIoC.Data.Ef
 {
+    using System.Linq;
     using System.Threading.Tasks;
     using Mpc.WinFormsIoC.Domain.Core;
     using Mpc.WinFormsIoC.Domain.Core.Repositories;
@@ -19,9 +20,16 @@
 
         public ICountriesRepository CountriesRepository { get; }
 
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+
+            var entities = _context.ChangeTracker.Entries().ToList();
+
+            foreach (var entry in entities)
+            {
+                entry.State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+            }
         }
     }
 }

@@ -9,6 +9,8 @@
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
+            ChangeTracker.AutoDetectChangesEnabled = false;
+            ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public DbSet<CountryModel> Countries { get; set; }
