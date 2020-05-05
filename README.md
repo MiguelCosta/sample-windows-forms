@@ -58,4 +58,23 @@ Scripts to create database schema: `src/DataBaseMigrations`
 | --------| --------------------------------------------- |
 | 001     | Create Database                               |
 | 002     | Create Users Table                            |
-|         |                                               |
+| 003     | Create Contries Table                         |
+
+## Run
+
+### SQL Server with docker
+
+```
+docker run -e ''ACCEPT_EULA=Y'' -e ''SA_PASSWORD=Adm1nP@ssw0rd'' --name mssql -p 1433:1433 -d microsoft/mssql-server-linux
+docker container start mssql
+// server:   localhost
+// user:     sa
+// password: Adm1nP@ssw0rd
+```
+
+### Default user to login
+
+```
+User:       system
+Password:   system_123
+```

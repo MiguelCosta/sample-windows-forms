@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpc.WinFormsIoC.Presentation", "Mpc.WinFormsIoC.Presentation\Mpc.WinFormsIoC.Presentation.csproj", "{18533FA3-A77F-4AAC-BF26-71F1EFB33F79}"
 EndProject
@@ -31,7 +31,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mpc.WinFormsIoC.WebApi", "M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{80CBC1C4-1938-49D7-81A0-829B50F46909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpc.WinFormsIoC.Application.Services.Tests", "Mpc.WinFormsIoC.Application.Services.Tests\Mpc.WinFormsIoC.Application.Services.Tests.csproj", "{E7842575-AD9D-4F46-A522-BA455DF40836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mpc.WinFormsIoC.Application.Services.Tests", "Mpc.WinFormsIoC.Application.Services.Tests\Mpc.WinFormsIoC.Application.Services.Tests.csproj", "{E7842575-AD9D-4F46-A522-BA455DF40836}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09A2224C-85B6-4ABD-9B5E-B7B138E208EF}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{DC96DCA7-6E41-4479-A09C-34B0EADFEB86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseMigrations", "DataBaseMigrations", "{C1206257-09DC-4537-B636-85AB6EA36756}"
+	ProjectSection(SolutionItems) = preProject
+		DataBaseMigrations\001_CreateDatabase.sql = DataBaseMigrations\001_CreateDatabase.sql
+		DataBaseMigrations\002_CreateUsersTable.sql = DataBaseMigrations\002_CreateUsersTable.sql
+		DataBaseMigrations\003_CreateCountriesTable.sql = DataBaseMigrations\003_CreateCountriesTable.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +104,7 @@ Global
 		{74B22B90-CBD3-4BE3-8FAC-4B474BCEDD8F} = {AF4F119E-B6A6-47F6-B127-B4497FB5F3E3}
 		{80CBC1C4-1938-49D7-81A0-829B50F46909} = {9384B3A8-5F7F-4DF4-A2A1-B20F675678DD}
 		{E7842575-AD9D-4F46-A522-BA455DF40836} = {80CBC1C4-1938-49D7-81A0-829B50F46909}
+		{C1206257-09DC-4537-B636-85AB6EA36756} = {DC96DCA7-6E41-4479-A09C-34B0EADFEB86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEA46806-4526-4C3A-B102-93204382555B}
