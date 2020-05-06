@@ -5,8 +5,8 @@ Windows forms with dependency injection
 
 ```text
 1 - Presentation
-    Mpc.WinFormsIoC.Presentation                (Windows Forms App - .Net Framework 4.7.1)
-    Mpc.WinFormsIoC.WebApi                      (Asp.Net Core Web Application - .Net Core 2.1)
+    Mpc.WinFormsIoC.Presentation                (Windows Forms App - .Net Framework 4.8)
+    Mpc.WinFormsIoC.WebApi                      (Asp.Net Core Web Application - .Net Core 3.1)
 2 - Application
     Mpc.WinFormsIoC.Application.Dto             (Class Library - .Net Standard 2.0)
     Mpc.WinFormsIoC.Application.Services        (Class Library - .Net Standard 2.0)

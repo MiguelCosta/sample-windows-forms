@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Mpc.WinFormsIoC.Application.Services.Configuration;
 using Mpc.WinFormsIoC.Data.Ef.Configuration;
 using Mpc.WinFormsIoC.Infrastructure.CrossCutting.Settings;
@@ -22,9 +22,9 @@ namespace Mpc.WinFormsIoC.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
             var appSettings = this.Configuration.Get<AppSettings>();
+
+            services.AddControllers();
 
             services
                 .ConfigureApplicationServices(appSettings)
@@ -33,7 +33,9 @@ namespace Mpc.WinFormsIoC.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(
+            IApplicationBuilder app,
+            IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -46,8 +48,13 @@ namespace Mpc.WinFormsIoC.WebApi
 
             app
                 .UseHttpsRedirection()
-                .UseMvc()
                 .AppConfigureSwagger();
+
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

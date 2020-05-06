@@ -17,7 +17,7 @@
 
         public Task<CountryModel> FindAsync(int countryId)
         {
-            return _context.Countries.FindAsync(countryId);
+            return _context.Countries.FindAsync(countryId).AsTask();
         }
 
         public Task<List<CountryModel>> GetAllAsync()
@@ -27,7 +27,7 @@
 
         public Task InsertAsync(CountryModel country)
         {
-            return _context.Countries.AddAsync(country);
+            return _context.Countries.AddAsync(country).AsTask();
         }
     }
 }

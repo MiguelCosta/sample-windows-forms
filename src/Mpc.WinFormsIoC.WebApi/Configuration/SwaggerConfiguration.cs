@@ -3,9 +3,9 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Mpc.WinFormsIoC.Application.Dto;
 using Mpc.WinFormsIoC.Infrastructure.CrossCutting.Settings;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace Mpc.WinFormsIoC.WebApi.Configuration
 {
@@ -13,16 +13,18 @@ namespace Mpc.WinFormsIoC.WebApi.Configuration
     {
         internal static IServiceCollection ConfigureSwagger(this IServiceCollection services, AppSettings appSettings)
         {
-            var info = new Info
+            var buildVersion = typeof(SwaggerConfiguration).GetTypeInfo().Assembly.GetName().Version;
+
+            var info = new OpenApiInfo
             {
+                Title = "My example of WinForms with IoC",
                 Version = "v1",
-                Title = appSettings.AppName,
-                Description = "My example of WinForms with IoC",
-                Contact = new Contact
+                Description = $"Build Version: {buildVersion}",
+                Contact = new OpenApiContact
                 {
                     Email = "miguelpintodacosta@gmail.com",
                     Name = "Miguel Costa",
-                    Url = "https://github.com/MiguelCosta/sample-windows-forms"
+                    Url = new Uri("https://github.com/MiguelCosta/sample-windows-forms")
                 }
             };
 
@@ -35,9 +37,10 @@ namespace Mpc.WinFormsIoC.WebApi.Configuration
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, webApiDoc));
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, dtoDoc));
 
-                c.DescribeAllEnumsAsStrings();
                 c.DescribeAllParametersInCamelCase();
             });
+
+            services.AddSwaggerGenNewtonsoftSupport();
 
             return services;
         }

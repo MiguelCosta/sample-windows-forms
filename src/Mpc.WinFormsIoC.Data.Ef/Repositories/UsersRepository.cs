@@ -55,7 +55,7 @@
 
         public Task InsertAsync(UserModel user)
         {
-            return _context.Users.AddAsync(user);
+            return _context.Users.AddAsync(user).AsTask();
         }
 
         public void Update(UserModel user)

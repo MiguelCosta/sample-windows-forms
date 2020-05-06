@@ -7,14 +7,15 @@ namespace Mpc.WinFormsIoC.Presentation.Core.Helpers
         public static void OpenForm<TFrom>() where TFrom : Form
         {
             var form = Config.IoC.GetForm<TFrom>();
-            form.MdiParent = ApplicationContext.MainForm;
-            form.Show();
-            form.WindowState = FormWindowState.Minimized;
-            form.WindowState = FormWindowState.Maximized;
+            OpenForm(form);
         }
 
         public static void OpenForm(Form form)
         {
+            foreach (var item in ApplicationContext.MainForm.MdiChildren)
+            {
+                item.Close();
+            }
             form.MdiParent = ApplicationContext.MainForm;
             form.Show();
             form.WindowState = FormWindowState.Minimized;
