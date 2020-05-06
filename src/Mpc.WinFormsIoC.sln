@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseMigrations", "DataB
 		DataBaseMigrations\003_CreateCountriesTable.sql = DataBaseMigrations\003_CreateCountriesTable.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpc.WinFormsIoC.PresentationCore", "Mpc.WinFormsIoC.PresentationCore\Mpc.WinFormsIoC.PresentationCore.csproj", "{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{E7842575-AD9D-4F46-A522-BA455DF40836}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7842575-AD9D-4F46-A522-BA455DF40836}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7842575-AD9D-4F46-A522-BA455DF40836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +111,7 @@ Global
 		{80CBC1C4-1938-49D7-81A0-829B50F46909} = {9384B3A8-5F7F-4DF4-A2A1-B20F675678DD}
 		{E7842575-AD9D-4F46-A522-BA455DF40836} = {80CBC1C4-1938-49D7-81A0-829B50F46909}
 		{C1206257-09DC-4537-B636-85AB6EA36756} = {DC96DCA7-6E41-4479-A09C-34B0EADFEB86}
+		{6D0DD07D-8904-45B1-BD9C-4DC8CC5E69A0} = {AF4F119E-B6A6-47F6-B127-B4497FB5F3E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEA46806-4526-4C3A-B102-93204382555B}

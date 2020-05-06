@@ -6,6 +6,7 @@ Windows forms with dependency injection
 ```text
 1 - Presentation
     Mpc.WinFormsIoC.Presentation                (Windows Forms App - .Net Framework 4.8)
+    Mpc.WinFormsIoC.PresentationCore            (Windows Forms App - .Net Core 3.1))
     Mpc.WinFormsIoC.WebApi                      (Asp.Net Core Web Application - .Net Core 3.1)
 2 - Application
     Mpc.WinFormsIoC.Application.Dto             (Class Library - .Net Standard 2.0)
@@ -32,6 +33,18 @@ File `App.config`
     <add key="DataBaseConnectionString" value="Server=localhost;Database=MpcWinFormsIoCDataBase;User Id=MpcWinFormsIoCUser;Password=Mpc123" />
   </appSettings>
 </configuration>
+```
+
+### Mpc.WinFormsIoC.PresentationCore
+
+File `appsettings.json`
+
+```json
+{
+  "DataBaseSettings": {
+    "ConnectionString": "Server=localhost;Database=MpcWinFormsIoCDataBase;User Id=MpcWinFormsIoCUser;Password=Mpc123"
+  }
+}
 ```
 
 ### Mpc.WinFormsIoC.WebApi
